@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CSharpStrangeBug
@@ -6,28 +7,6 @@ namespace CSharpStrangeBug
     [TestClass]
     public class StrangeBugTests
     {
-        private static float[][] GenerateDctMatrix(int size)
-        {
-            var c1 = Math.Sqrt(2.0f / size);
-
-            var matrix = new float[size][];
-            for (var i = 0; i < size; i++)
-            {
-                matrix[i] = new float[size];
-            }
-
-            for (var i = 0; i < size; i++)
-            {
-                matrix[0][i] = (float)Math.Sqrt(1.0d / size);
-
-                for (var j = 1; j < size; j++)
-                {
-                    matrix[j][i] = (float)(c1 * Math.Cos((2 * i + 1) * j * Math.PI / (2.0d * size)));
-                }
-            }
-            return matrix;
-        }
-
         private static float[][] Multiply(float[][] a, float[][] b, bool cast)
         {
             var n = a[0].Length;
@@ -60,23 +39,13 @@ namespace CSharpStrangeBug
         {
             const int size = 32;
 
-            var a = GenerateDctMatrix(size);
+            var random = new Random();
+            var a = Enumerable.Range(0, size)
+                .Select(i => Enumerable.Range(0, size).Select(j => (float)random.NextDouble()).ToArray())
+                .ToArray();
 
-            var b = new float[size][];
-            for (var i = 0; i < size; i++)
-            {
-                b[i] = new float[size];
-                for (var j = 0; j < size; j++)
-                {
-                    var shift = j + i * size;
-                    var value = shift % 256 / 255.0f;
-
-                    b[i][j] = value;
-                }
-            }
-
-            var array1 = Multiply(a, b, true);
-            var array2 = Multiply(a, b, false);
+            var array1 = Multiply(a, a, true);
+            var array2 = Multiply(a, a, false);
 
             for (var i = 0; i < size; i++)
             {
