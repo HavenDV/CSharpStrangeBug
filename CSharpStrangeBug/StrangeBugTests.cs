@@ -41,7 +41,10 @@ namespace CSharpStrangeBug
 
             var random = new Random();
             var a = Enumerable.Range(0, size)
-                .Select(i => Enumerable.Range(0, size).Select(j => (float)random.NextDouble()).ToArray())
+                .Select(
+                    i => Enumerable.Range(0, size)
+                        .Select(j => (float)random.NextDouble())
+                        .ToArray())
                 .ToArray();
 
             var array1 = Multiply(a, a, true);
