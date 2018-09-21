@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpStrangeBug", "CSharpStrangeBug\CSharpStrangeBug.csproj", "{0D40C7A6-DB39-49E7-9CA9-6410325C43DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D40C7A6-DB39-49E7-9CA9-6410325C43DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D40C7A6-DB39-49E7-9CA9-6410325C43DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D40C7A6-DB39-49E7-9CA9-6410325C43DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D40C7A6-DB39-49E7-9CA9-6410325C43DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B4D3E01-9A49-4EA0-A683-3094897B45A1}
+	EndGlobalSection
+EndGlobal
